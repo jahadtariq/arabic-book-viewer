@@ -53,21 +53,6 @@ export const TextContainer = styled.div.attrs(props => {
   }
 `;
 
-const OverlayText = styled.div`
-  position: absolute;
-  top: ${props => props.top}px;
-  left: ${props => props.left}px;
-  font-size: ${props => props.fontSize}px;
-  font-weight: ${props => props.fontWeight};
-  color: rgba(0, 0, 0, 0.35); // transparent style
-  z-index: 2;
-  pointer-events: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  max-width: ${props => props.maxWidth}px;
-`;
-
-
 
 export const TextOverlay = React.forwardRef(({ textData, pageDimensions, styleOverrides }, ref) => {
   if (!textData?.text || !pageDimensions) return null;

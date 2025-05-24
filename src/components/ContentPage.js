@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import { TextOverlay } from './TextOverlay';
 
@@ -47,12 +47,11 @@ export const ContentPage = React.forwardRef(({
   const isMobile = dimensions.mode === 'responsive';
 
   // Adjusted dimensions for mobile with padding
-  const effectiveDimensions = {
+  const effectiveDimensions = useMemo(() => ({
     width: dimensions.width || 400,
     height: dimensions.height || 565,
-    // For mobile, reduce available height by padding
     contentHeight: isMobile ? (dimensions.height || 565) - 16 : (dimensions.height || 565)
-  };
+  }), [dimensions.width, dimensions.height, isMobile]);
 
   useEffect(() => {
     if (!predefinedTexts || !effectiveDimensions) return;

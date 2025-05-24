@@ -3,7 +3,7 @@ import { CoverPage } from './CoverPage';
 import { ContentPage } from './ContentPage';
 import { bookData } from '../data/bookData';
 import { FaAngleDoubleLeft, FaAngleLeft, FaAngleRight, FaAngleDoubleRight } from 'react-icons/fa';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 const SliderContainer = styled.div`
   width: 100vw;
