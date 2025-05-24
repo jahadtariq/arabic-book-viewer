@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle } from './styles/globalStyles';
+import { Book } from './components/Book';
+import { MobileBook } from './components/MobileBook';
+import { useMediaQuery } from './hooks/useMediaQuery';
+import "./App.css"
 
-function App() {
+export default function App() {
+  const isMobileOrTablet = useMediaQuery(1024); // Use the same breakpoint as before
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      {isMobileOrTablet ? <MobileBook /> : <Book />}
+    </>
   );
 }
-
-export default App;
